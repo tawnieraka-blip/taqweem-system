@@ -1,1 +1,295 @@
+/* ==========================================
+   منصة إدارة التقويم والمتابعة
+   Version 1.0.0
+========================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800&display=swap');
+
+:root{
+
+    --primary:#2563EB;
+    --primary-dark:#1D4ED8;
+
+    --success:#22C55E;
+    --danger:#EF4444;
+    --warning:#F59E0B;
+
+    --background:#F5F7FB;
+    --card:#FFFFFF;
+
+    --text:#1E293B;
+    --muted:#64748B;
+
+    --shadow:0 15px 40px rgba(0,0,0,.08);
+
+    --radius:22px;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    direction:rtl;
+
+    font-family:"Cairo",sans-serif;
+
+    background:linear-gradient(135deg,#eef5ff,#f7fbff,#ffffff);
+
+    min-height:100vh;
+
+    color:var(--text);
+
+}
+
+/* الصفحة */
+
+.login-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    position:relative;
+
+}
+
+/* الأزرار العلوية */
+
+.top-actions{
+
+    position:absolute;
+
+    top:25px;
+
+    left:25px;
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.icon-btn{
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:var(--shadow);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:18px;
+
+}
+
+.icon-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* البطاقة */
+
+.login-card{
+
+    width:100%;
+
+    max-width:420px;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    animation:fadeUp .8s;
+
+}
+
+/* الشعار */
+
+.logo{
+
+    width:110px;
+
+    margin-bottom:18px;
+
+}
+
+/* الجمعية */
+
+.association{
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+/* عنوان المنصة */
+
+.title{
+
+    color:var(--primary);
+
+    font-weight:800;
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+}
+
+/* الوصف */
+
+.subtitle{
+
+    color:var(--muted);
+
+    margin-bottom:30px;
+
+}
+
+/* الإدخال */
+
+.form-control{
+
+    height:58px;
+
+    border-radius:16px;
+
+    border:2px solid #E5E7EB;
+
+    font-size:17px;
+
+    text-align:center;
+
+}
+
+.form-control:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:none;
+
+}
+
+/* الزر */
+
+.login-btn{
+
+    width:100%;
+
+    height:58px;
+
+    border-radius:16px;
+
+    background:linear-gradient(90deg,#2563EB,#1D4ED8);
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-2px);
+
+    color:#fff;
+
+}
+
+/* الإصدار */
+
+.version{
+
+    margin-top:25px;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+}
+
+/* الحركة */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.login-card{
+
+padding:30px 22px;
+
+}
+
+.logo{
+
+width:95px;
+
+}
+
+.title{
+
+font-size:24px;
+
+}
+
+}
