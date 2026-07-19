@@ -4,14 +4,14 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>لوحة التحكم</title>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
 <link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
@@ -19,136 +19,157 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <div class="dashboard">
 
-<header class="topbar">
+    <!-- Header -->
 
-<div class="logo">
+    <header class="topbar">
 
-<img src="assets/logo.PNG">
+        <div class="logoBox">
 
-<div>
+            <img src="assets/logo.PNG">
 
-<h2>منصة إدارة التقويم والمتابعة</h2>
+            <div>
 
-<p>جمعية الدعوة والإرشاد وتوعية الجاليات بالراكة</p>
+                <h2>منصة إدارة التقويم والمتابعة</h2>
 
-</div>
+                <small>
+جمعية الدعوة والإرشاد وتوعية الجاليات بالراكة
+                </small>
 
-</div>
+            </div>
 
-<div class="user">
+        </div>
 
-<span id="userName"></span>
+        <div class="userBox">
 
-<button id="logoutBtn">
+            <span id="userName"></span>
 
-<i class="fa-solid fa-right-from-bracket"></i>
+            <button id="logoutBtn">
 
-</button>
+                <i class="fa-solid fa-right-from-bracket"></i>
 
-</div>
+                خروج
 
-</header>
+            </button>
 
-<section class="cards">
+        </div>
 
-<div class="card">
+    </header>
 
-<i class="fa-solid fa-file-lines"></i>
 
-<h3 id="reportsCount">0</h3>
+    <!-- Statistics -->
 
-<p>التقارير</p>
+    <section class="cards">
 
-</div>
+        <div class="card">
 
-<div class="card">
+            <i class="fa-solid fa-file-lines"></i>
 
-<i class="fa-solid fa-users"></i>
+            <h1 id="reportsCount">0</h1>
 
-<h3 id="employeesCount">0</h3>
+            <p>التقارير</p>
 
-<p>الموظفون</p>
+        </div>
 
-</div>
+        <div class="card">
 
-<div class="card">
+            <i class="fa-solid fa-users"></i>
 
-<i class="fa-solid fa-clock"></i>
+            <h1 id="employeesCount">0</h1>
 
-<h3 id="pendingCount">0</h3>
+            <p>الموظفون</p>
 
-<p>المعلقة</p>
+        </div>
 
-</div>
+        <div class="card">
 
-<div class="card">
+            <i class="fa-solid fa-clock"></i>
 
-<i class="fa-solid fa-chart-line"></i>
+            <h1 id="pendingCount">0</h1>
 
-<h3 id="todayCount">0</h3>
+            <p>المعلقة</p>
 
-<p>اليوم</p>
+        </div>
 
-</div>
+        <div class="card">
 
-</section>
+            <i class="fa-solid fa-calendar-day"></i>
 
-<section class="quick">
+            <h1 id="todayCount">0</h1>
 
-<a href="upload.html" class="action">
+            <p>اليوم</p>
 
-<i class="fa-solid fa-upload"></i>
+        </div>
 
-<span>رفع تقرير</span>
+    </section>
 
-</a>
 
-<a href="reports.html" class="action">
 
-<i class="fa-solid fa-file-lines"></i>
+    <!-- Menu -->
 
-<span>التقارير</span>
+    <section class="menuGrid">
 
-</a>
+        <a href="upload.html" class="menuCard">
 
-<a href="employees.html" class="action">
+            <i class="fa-solid fa-upload"></i>
 
-<i class="fa-solid fa-users"></i>
+            <span>رفع تقرير</span>
 
-<span>الموظفون</span>
+        </a>
 
-</a>
+        <a href="reports.html" class="menuCard">
 
-<a href="settings.html" class="action">
+            <i class="fa-solid fa-file-lines"></i>
 
-<i class="fa-solid fa-gear"></i>
+            <span>التقارير</span>
 
-<span>الإعدادات</span>
+        </a>
 
-</a>
+        <a href="employees.html" class="menuCard">
 
-</section>
+            <i class="fa-solid fa-users"></i>
 
-<section class="latest">
+            <span>الموظفون</span>
 
-<h3>
+        </a>
 
-آخر التقارير
+        <a href="settings.html" class="menuCard">
 
-</h3>
+            <i class="fa-solid fa-gear"></i>
 
-<div id="latestReports">
+            <span>الإعدادات</span>
 
-لا توجد بيانات
+        </a>
 
-</div>
+    </section>
 
-</section>
+
+
+    <!-- Latest -->
+
+    <section class="latest">
+
+        <h3>
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            آخر التقارير
+
+        </h3>
+
+        <div id="latestReports">
+
+            جار التحميل...
+
+        </div>
+
+    </section>
 
 </div>
 
 <script src="js/config.js"></script>
+
 <script src="js/api.js"></script>
+
 <script src="js/dashboard.js"></script>
 
 </body>
