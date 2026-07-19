@@ -354,3 +354,86 @@ grid-template-columns:repeat(4,1fr);
 }
 
 }
+.report-item{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+}
+
+.report-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.report-avatar{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:14px;
+
+    background:#2563eb;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.report-info h4{
+
+    margin:0;
+
+    font-size:16px;
+
+}
+
+.report-info span{
+
+    color:#888;
+
+    font-size:13px;
+
+}
+
+.report-status{
+
+    margin-top:15px;
+
+}
+
+.status{
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+}
+
+.approved{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+}
