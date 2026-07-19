@@ -9,19 +9,16 @@ class API {
 
         try {
 
+            const payload = JSON.stringify({
+                action,
+                data
+            });
+
             const response = await fetch(CONFIG.API_URL, {
-
                 method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    action: action,
-                    data: data
+                body: new URLSearchParams({
+                    payload: payload
                 })
-
             });
 
             return await response.json();
