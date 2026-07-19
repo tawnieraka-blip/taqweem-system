@@ -1,6 +1,6 @@
 /* ==========================================
    منصة إدارة التقويم والمتابعة
-   إعدادات النظام
+   Configuration
 ========================================== */
 
 const CONFIG = {
@@ -9,7 +9,7 @@ const CONFIG = {
 
     VERSION: "1.0.0",
 
-    API_URL: "",
+    API_URL: "https://script.google.com/macros/s/AKfycbyU6sOWCmWWeK4XHUfkoD66ATkMoRzogozHYCadwxpHWC3w9J_x5qq7q6Y5evd46wVp/exec",
 
     DEBUG: true
 
