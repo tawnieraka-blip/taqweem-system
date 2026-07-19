@@ -24,16 +24,24 @@ class API {
 
                 method: "POST",
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                body: new URLSearchParams({
 
-                body: JSON.stringify({
-                    action,
-                    data
+                    payload: JSON.stringify({
+
+                        action,
+                        data
+
+                    })
+
                 })
 
             });
+
+            if (!response.ok) {
+
+                throw new Error("HTTP Error: " + response.status);
+
+            }
 
             return await response.json();
 
@@ -41,7 +49,7 @@ class API {
 
         catch (error) {
 
-            console.error(error);
+            console.error("API Error:", error);
 
             return {
 
