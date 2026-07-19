@@ -68,7 +68,7 @@ async function loadDashboard() {
 
             <h4>${report.employee}</h4>
 
-            <span>${report.date}</span>
+            <span>${report.date}</span> 
 
         </div>
 
