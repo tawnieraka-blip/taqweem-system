@@ -56,18 +56,36 @@ async function loadDashboard() {
                 data.slice(0,5).forEach(report => {
 
                     latest.innerHTML += `
-                        <div class="report-item">
-                            <strong>${report.employee}</strong>
-                            <br>
-                            ${report.date}
-                        </div>
-                    `;
+<div class="report-item">
 
-                });
+    <div class="report-header">
 
-            }
+        <div class="report-avatar">
+            <i class="fa-solid fa-user"></i>
+        </div>
 
-        }
+        <div class="report-info">
+
+            <h4>${report.employee}</h4>
+
+            <span>${report.date}</span>
+
+        </div>
+
+    </div>
+
+    <div class="report-status">
+
+        <span class="status approved">
+
+            ✓ معتمد
+
+        </span>
+
+    </div>
+
+</div>
+`;
 
         const employees = await API.request("getEmployees");
 
