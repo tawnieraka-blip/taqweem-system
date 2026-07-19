@@ -3,249 +3,227 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>لوحة التحكم</title>
+    <title>لوحة التحكم</title>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-<div class="dashboard">
+    <div class="dashboard">
 
-    <!-- Header -->
+        <!-- Header -->
 
-    <header class="top-header">
+        <header class="top-header">
 
-        <div class="logo-box">
+            <div class="logo-box">
 
-            <img src="assets/logo.PNG">
+                <img src="assets/logo.PNG" alt="Logo">
 
-        </div>
+            </div>
 
-        <div class="title-box">
+            <div class="title-box">
 
-            <h1>منصة إدارة التقويم والمتابعة</h1>
+                <h1>منصة إدارة التقويم والمتابعة</h1>
 
-            <span>
-                جمعية الدعوة والإرشاد وتوعية الجاليات بالراكة
-            </span>
+                <span>
+                    جمعية الدعوة والإرشاد وتوعية الجاليات بالراكة
+                </span>
 
-        </div>
+            </div>
 
-        <div class="profile-box">
+            <div class="profile-box">
 
-            <button class="notify">
+                <button class="notify">
 
-                <i class="fa-regular fa-bell"></i>
+                    <i class="fa-regular fa-bell"></i>
+
+                </button>
+
+                <span id="userName">
+                    المستخدم
+                </span>
+
+                <div class="avatar">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+                <button id="logoutBtn" class="logout-btn">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- الوقت -->
+
+        <section class="welcome-card">
+
+            <div class="time-card">
+
+                <i class="fa-regular fa-clock"></i>
+
+                <div>
+
+                    <h2 id="clock">--:--</h2>
+
+                    <span id="day">الأحد</span>
+
+                </div>
+
+            </div>
+
+            <div class="date-card">
+
+                <i class="fa-regular fa-calendar"></i>
+
+                <div>
+
+                    <h3 id="date"></h3>
+
+                    <span id="hijri"></span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- الإحصائيات -->
+
+        <section class="stats">
+
+            <div class="stat-card blue">
+
+                <i class="fa-solid fa-file-lines"></i>
+
+                <h2 id="reportsCount">0</h2>
+
+                <p>التقارير</p>
+
+            </div>
+
+            <div class="stat-card green">
+
+                <i class="fa-solid fa-users"></i>
+
+                <h2 id="employeesCount">0</h2>
+
+                <p>الموظفون</p>
+
+            </div>
+
+            <div class="stat-card purple">
+
+                <i class="fa-solid fa-calendar-week"></i>
+
+                <h2 id="weekReports">0</h2>
+
+                <p>هذا الأسبوع</p>
+
+            </div>
+
+        </section>
+
+        <!-- آخر التقارير -->
+
+        <section class="last-reports">
+
+            <div class="section-title">
+
+                <h3>آخر التقارير</h3>
+
+            </div>
+
+            <div id="reportsList">
+
+                <p style="text-align:center;color:#999">
+                    جاري تحميل البيانات...
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- الرسائل -->
+
+        <section class="message-box">
+
+            <h3>إرسال رسالة</h3>
+
+            <select id="employeeSelect">
+
+                <option>اختر الموظف</option>
+
+            </select>
+
+            <textarea id="messageText"
+                placeholder="اكتب الرسالة هنا..."></textarea>
+
+            <button id="sendMessage">
+
+                إرسال
 
             </button>
 
-            <div class="avatar">
+        </section>
 
-                <i class="fa-solid fa-user"></i>
+    </div>
 
-            </div>
+    <!-- Bottom Navigation -->
 
-        </div>
+    <nav class="bottom-nav">
 
-    </header>
+        <a href="dashboard.html">
 
+            <i class="fa-solid fa-house"></i>
 
+            <span>الرئيسية</span>
 
-    <!-- Time -->
+        </a>
 
-    <section class="welcome-card">
-
-        <div class="time-card">
-
-            <i class="fa-regular fa-clock"></i>
-
-            <div>
-
-                <h2 id="clock">
-
-                    --:--
-
-                </h2>
-
-                <span id="day">
-
-                    الأحد
-
-                </span>
-
-            </div>
-
-        </div>
-
-        <div class="date-card">
-
-            <i class="fa-regular fa-calendar"></i>
-
-            <div>
-
-                <h3 id="date">
-
-                </h3>
-
-                <span id="hijri">
-
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- Stats -->
-
-    <section class="stats">
-
-        <div class="stat-card blue">
+        <a href="reports.html">
 
             <i class="fa-solid fa-file-lines"></i>
 
-            <h2 id="reportsCount">0</h2>
+            <span>التقارير</span>
 
-            <p>التقارير</p>
+        </a>
 
-        </div>
-
-        <div class="stat-card green">
+        <a href="employees.html">
 
             <i class="fa-solid fa-users"></i>
 
-            <h2 id="employeesCount">0</h2>
+            <span>الموظفون</span>
 
-            <p>الموظفون</p>
+        </a>
 
-        </div>
+        <a href="settings.html">
 
-        <div class="stat-card purple">
+            <i class="fa-solid fa-gear"></i>
 
-            <i class="fa-solid fa-calendar-week"></i>
+            <span>الإعدادات</span>
 
-            <h2 id="weekReports">0</h2>
+        </a>
 
-            <p>هذا الأسبوع</p>
+    </nav>
 
-        </div>
+    <script src="js/config.js"></script>
 
-    </section>
-
-
-
-    <!-- Reports -->
-
-    <section class="last-reports">
-
-        <div class="section-title">
-
-            <h3>
-
-                آخر التقارير
-
-            </h3>
-
-        </div>
-
-        <div id="reportsList">
-
-        </div>
-
-    </section>
-
-
-
-    <!-- Message -->
-
-    <section class="message-box">
-
-        <h3>
-
-            إرسال رسالة
-
-        </h3>
-
-        <select id="employeeSelect">
-
-        </select>
-
-        <textarea
-        id="messageText"
-        placeholder="اكتب الرسالة...">
-
-        </textarea>
-
-        <button id="sendMessage">
-
-            إرسال
-
-        </button>
-
-    </section>
-
-</div>
-
-
-
-<!-- Bottom Navigation -->
-
-<nav class="bottom-nav">
-
-<a href="reports.html">
-
-<i class="fa-solid fa-file-lines"></i>
-
-<span>
-
-التقارير
-
-</span>
-
-</a>
-
-<a href="employees.html">
-
-<i class="fa-solid fa-users"></i>
-
-<span>
-
-الموظفون
-
-</span>
-
-</a>
-
-<a href="settings.html">
-
-<i class="fa-solid fa-gear"></i>
-
-<span>
-
-الإعدادات
-
-</span>
-
-</a>
-
-</nav>
-
-<script src="js/config.js"></script>
-
-<script src="js/api.js"></script>
-
-<script src="js/dashboard.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
 
 </body>
 
