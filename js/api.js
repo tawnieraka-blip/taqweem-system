@@ -16,7 +16,7 @@ class API {
 
             const response = await fetch(CONFIG.API_URL, {
 
-                method: "POST",
+                method: "POST", 
 
                 body: new URLSearchParams({
                     payload
