@@ -9,167 +9,205 @@
 <title>لوحة التحكم</title>
 
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-</head> 
+</head>
 
 <body>
 
 <div class="dashboard">
 
-    <!-- Header -->
+<header class="header">
 
-    <header class="topbar">
+<div class="logo-area">
 
-        <div class="logoBox">
+<img src="assets/logo.png" class="logo">
 
-            <img src="assets/logo.PNG">
+<div>
 
-            <div>
+<h2>منصة إدارة التقويم والمتابعة</h2>
 
-                <h2>منصة إدارة التقويم والمتابعة</h2>
+<p>جمعية الدعوة والإرشاد وتوعية الجاليات بالراكة</p>
 
-                <small>
-جمعية الدعوة والإرشاد وتوعية الجاليات بالراكة
-                </small>
+</div>
 
-            </div>
+</div>
 
-        </div>
+<button id="logoutBtn">
 
-        <div class="userBox">
+<i class="fa-solid fa-right-from-bracket"></i>
 
-            <span id="userName"></span>
+</button>
 
-            <button id="logoutBtn">
+</header>
 
-                <i class="fa-solid fa-right-from-bracket"></i>
+<section class="welcome">
 
-                خروج
+<div>
 
-            </button>
+<h3>
 
-        </div>
+👋 أهلاً بك
 
-    </header>
+</h3>
 
+<h1 id="userName"></h1>
 
-    <!-- Statistics -->
+<p>
 
-    <section class="cards">
+نتمنى لك يوماً موفقاً
 
-        <div class="card">
+</p>
 
-            <i class="fa-solid fa-file-lines"></i>
+</div>
 
-            <h1 id="reportsCount">0</h1>
+</section>
 
-            <p>التقارير</p>
+<section class="stats">
 
-        </div>
+<div class="stat-card">
 
-        <div class="card">
+<div class="icon blue">
 
-            <i class="fa-solid fa-users"></i>
+<i class="fa-solid fa-file-lines"></i>
 
-            <h1 id="employeesCount">0</h1>
+</div>
 
-            <p>الموظفون</p>
+<div>
 
-        </div>
+<h4>التقارير</h4>
 
-        <div class="card">
+<h2 id="reportsCount">0</h2>
 
-            <i class="fa-solid fa-clock"></i>
+</div>
 
-            <h1 id="pendingCount">0</h1>
+</div>
 
-            <p>المعلقة</p>
+<div class="stat-card">
 
-        </div>
+<div class="icon green">
 
-        <div class="card">
+<i class="fa-solid fa-users"></i>
 
-            <i class="fa-solid fa-calendar-day"></i>
+</div>
 
-            <h1 id="todayCount">0</h1>
+<div>
 
-            <p>اليوم</p>
+<h4>الموظفون</h4>
 
-        </div>
+<h2 id="employeesCount">0</h2>
 
-    </section>
+</div>
 
+</div>
 
+<div class="stat-card">
 
-    <!-- Menu -->
+<div class="icon orange">
 
-    <section class="menuGrid">
+<i class="fa-solid fa-clock"></i>
 
-        <a href="upload.html" class="menuCard">
+</div>
 
-            <i class="fa-solid fa-upload"></i>
+<div>
 
-            <span>رفع تقرير</span>
+<h4>المعلقة</h4>
 
-        </a>
+<h2 id="pendingCount">0</h2>
 
-        <a href="reports.html" class="menuCard">
+</div>
 
-            <i class="fa-solid fa-file-lines"></i>
+</div>
 
-            <span>التقارير</span>
+<div class="stat-card">
 
-        </a>
+<div class="icon purple">
 
-        <a href="employees.html" class="menuCard">
+<i class="fa-solid fa-calendar-days"></i>
 
-            <i class="fa-solid fa-users"></i>
+</div>
 
-            <span>الموظفون</span>
+<div>
 
-        </a>
+<h4>اليوم</h4>
 
-        <a href="settings.html" class="menuCard">
+<h2 id="todayCount">0</h2>
 
-            <i class="fa-solid fa-gear"></i>
+</div>
 
-            <span>الإعدادات</span>
+</div>
 
-        </a>
+</section>
 
-    </section>
+<section class="quick-actions">
 
+<h3>
 
+العمليات السريعة
 
-    <!-- Latest -->
+</h3>
 
-    <section class="latest">
+<div class="actions-grid">
 
-        <h3>
+<a href="upload.html">
 
-            <i class="fa-solid fa-clock-rotate-left"></i>
+<i class="fa-solid fa-upload"></i>
 
-            آخر التقارير
+رفع تقرير
 
-        </h3>
+</a>
 
-        <div id="latestReports">
+<a href="reports.html">
 
-            جار التحميل...
+<i class="fa-solid fa-file-lines"></i>
 
-        </div>
+التقارير
 
-    </section>
+</a>
+
+<a href="employees.html">
+
+<i class="fa-solid fa-users"></i>
+
+الموظفون
+
+</a>
+
+<a href="settings.html">
+
+<i class="fa-solid fa-gear"></i>
+
+الإعدادات
+
+</a>
+
+</div>
+
+</section>
+
+<section class="latest">
+
+<h3>
+
+آخر التقارير
+
+</h3>
+
+<div id="latestReports">
+
+جاري تحميل البيانات...
+
+</div>
+
+</section>
 
 </div>
 
 <script src="js/config.js"></script>
-
 <script src="js/api.js"></script>
-
 <script src="js/dashboard.js"></script>
 
 </body>
