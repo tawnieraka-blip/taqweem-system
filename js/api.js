@@ -9,17 +9,17 @@ class API {
 
         try {
 
-            const payload = JSON.stringify({
-                action,
-                data
-            });
-
             const response = await fetch(CONFIG.API_URL, {
 
-                method: "POST", 
+                method: "POST",
 
-                body: new URLSearchParams({
-                    payload
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    action: action,
+                    data: data
                 })
 
             });
@@ -31,11 +31,8 @@ class API {
             console.error(error);
 
             return {
-
                 success: false,
-
                 message: error.toString()
-
             };
 
         }
