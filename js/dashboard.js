@@ -2,18 +2,37 @@
    Dashboard
 ========================================== */
 
+//----------------------------
+// التحقق من تسجيل الدخول
+//----------------------------
+
 const user = JSON.parse(localStorage.getItem("user"));
 
 if (!user) {
+
     window.location.href = "index.html";
+
 }
 
-document.getElementById("userName").textContent =
-    user.name || user.code || "مستخدم";
+//----------------------------
+// اسم المستخدم
+//----------------------------
+
+const userName = document.getElementById("userName");
+
+userName.textContent =
+    user.fullName ||
+    user.name ||
+    user.username ||
+    "المستخدم";
+
+//----------------------------
+// تسجيل الخروج
+//----------------------------
 
 document.getElementById("logoutBtn").onclick = function () {
 
-    if (confirm("هل تريد تسجيل الخروج؟")) {
+    if (confirm("هل تريد تسجيل الخروج ؟")) {
 
         localStorage.removeItem("user");
 
@@ -23,93 +42,230 @@ document.getElementById("logoutBtn").onclick = function () {
 
 };
 
+//----------------------------
+// الساعة
+//----------------------------
+
+function updateClock() {
+
+    const now = new Date();
+
+    const time = now.toLocaleTimeString("ar-SA", {
+
+        hour: "2-digit",
+        minute: "2-digit"
+
+    });
+
+    document.getElementById("clock").textContent = time;
+
+}
+
+setInterval(updateClock, 1000);
+
+updateClock();
+
+//----------------------------
+// التاريخ الميلادي
+//----------------------------
+
+function updateDate() {
+
+    const now = new Date();
+
+    document.getElementById("date").textContent =
+        now.toLocaleDateString("ar-SA", {
+
+            weekday: "long",
+
+            year: "numeric",
+
+            month: "long",
+
+            day: "numeric"
+
+        });
+
+}
+
+updateDate();
+
+//----------------------------
+// التاريخ الهجري
+//----------------------------
+
+function updateHijri() {
+
+    const now = new Date();
+
+    document.getElementById("hijri").textContent =
+        new Intl.DateTimeFormat(
+
+            "ar-SA-u-ca-islamic",
+
+            {
+
+                day: "numeric",
+
+                month: "long",
+
+                year: "numeric"
+
+            }
+
+        ).format(now);
+
+}
+
+updateHijri();
+
+//----------------------------
+// تحميل البيانات
+//----------------------------
+
 loadDashboard();
 
 async function loadDashboard() {
 
     try {
 
-        const reports = await API.request("getReports");
+        //------------------
+        // التقارير
+        //------------------
 
-        if (reports.success) {
+        const reportsResponse = await API.request("getReports");
 
-            const data = reports.data || [];
+        let reports = [];
 
-            document.getElementById("reportsCount").textContent = data.length;
+        if (reportsResponse.success) {
 
-            document.getElementById("todayCount").textContent =
-                data.filter(r => isToday(r.date)).length;
-
-            document.getElementById("pendingCount").textContent =
-                data.filter(r => r.status === "معلق").length;
-
-            const latest = document.getElementById("latestReports");
-
-            latest.innerHTML = "";
-
-            if (data.length === 0) {
-
-                latest.innerHTML = "لا توجد تقارير";
-
-            } else {
-
-                data.slice(0,5).forEach(report => {
-
-                    latest.innerHTML += `
-<div class="report-item">
-
-    <div class="report-header">
-
-        <div class="report-avatar">
-            <i class="fa-solid fa-user"></i>
-        </div>
-
-        <div class="report-info">
-
-            <h4>${report.employee}</h4>
-
-            <span>${report.date}</span> 
-
-        </div>
-
-    </div>
-
-    <div class="report-status">
-
-        <span class="status approved">
-
-            ✓ معتمد
-
-        </span>
-
-    </div>
-
-</div>
-`;
-
-        const employees = await API.request("getEmployees");
-
-        if (employees.success) {
-
-            document.getElementById("employeesCount").textContent =
-                employees.data.length;
+            reports = reportsResponse.data || [];
 
         }
 
-    } catch (e) {
+        document.getElementById("reportsCount").textContent =
+            reports.length;
 
-        console.error(e);
+        //------------------
+        // هذا الأسبوع
+        //------------------
+
+        const currentWeek = getWeekNumber(new Date());
+
+        let weekReports = 0;
+
+        reports.forEach(report => {
+
+            if (!report.date) return;
+
+            const reportWeek =
+                getWeekNumber(new Date(report.date));
+
+            if (reportWeek === currentWeek) {
+
+                weekReports++;
+
+            }
+
+        });
+
+        document.getElementById("weekReports").textContent =
+            weekReports;
+
+        //------------------
+        // الموظفون
+        //------------------
+
+        const employeesResponse =
+            await API.request("getEmployees");
+
+        let employees = [];
+
+        if (employeesResponse.success) {
+
+            employees =
+                employeesResponse.data || [];
+
+        }
+
+        document.getElementById("employeesCount").textContent =
+            employees.length;
+
+        //------------------
+        // آخر التقارير
+        //------------------
+
+        const reportsList =
+            document.getElementById("reportsList");
+
+        reportsList.innerHTML = "";
+
+        if (reports.length === 0) {
+
+            reportsList.innerHTML =
+
+                "<p style='text-align:center;color:#888'>لا توجد تقارير</p>";
+
+            return;
+
+        }
+
+        reports.reverse().slice(0,5).forEach(report => {
+
+            reportsList.innerHTML += `
+
+<div class="report-item">
+
+<div class="report-info">
+
+<h4>
+
+${report.employee || "موظف"}
+
+</h4>
+
+<span>
+
+${report.date || ""}
+
+</span>
+
+</div>
+
+<div class="report-status">
+
+معتمد
+
+</div>
+
+</div>
+
+`;
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(error);
 
     }
 
 }
 
-function isToday(dateString) {
+//----------------------------
+// رقم الأسبوع
+//----------------------------
 
-    if (!dateString) return false;
+function getWeekNumber(date) {
 
-    const today = new Date().toISOString().split("T")[0];
+    const firstDay =
+        new Date(date.getFullYear(),0,1);
 
-    return dateString.startsWith(today);
+    const days =
+        Math.floor((date-firstDay)/86400000);
+
+    return Math.ceil((days+firstDay.getDay()+1)/7);
 
 }
